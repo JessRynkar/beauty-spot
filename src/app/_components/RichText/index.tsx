@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 
 import serialize from './serialize'
@@ -10,7 +12,7 @@ const RichText: React.FC<{ className?: string; content: any }> = ({ className, c
   }
 
   return (
-    <div className={[classes.richText, className].filter(Boolean).join(' ')}>
+    <div className={[classes.richText, className && className].filter(Boolean).join(' ')}>
       {serialize(content)}
     </div>
   )

@@ -1,43 +1,95 @@
 @use '../../_css/queries.scss' as *;
 
 .footer {
-  padding: calc(var(--base) * 4) 0;
-  background-color: var(--theme-elevation-1000);
-  color: var(--theme-elevation-0);
+  background-color: #F6EBE7;
 
-  @include small-break {
-    padding: calc(var(--base) * 2) 0;
+  .contact {
+    background-color: #FDF3EC;
+    color: var(--base-color-0);
+    padding: calc(var(--base) * 4) calc(var(--base) * 2);
+    margin: 0;
   }
-}
 
-:global([data-theme="dark"]) {
-  .footer {
-    background-color: var(--theme-elevation-50);
-    color: var(--theme-elevation-1000);
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: calc(var(--base) / 2) var(--base);
+    padding-top: calc(var(--base) * 4);
+    padding-bottom: calc(var(--base) * 4);
   }
-}
 
-.wrap {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: calc(var(--base) / 2) var(--base);
-}
-
-.logo {
-  width: 150px;
-}
-
-.nav {
-  display: flex;
-  gap: calc(var(--base) / 4) var(--base);
-  align-items: center;
-  flex-wrap: wrap;
-  opacity: 1;
-  transition: opacity 100ms linear;
-  visibility: visible;
-
-  > * {
+  .logo {
+    font-family: Fogtwo;
     text-decoration: none;
+    font-size: calc(var(--base) * 1.5);
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      transition: opacity 0.2s ease-in-out;
+      opacity: 0.75;
+    }
   }
+
+  .logoWrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .copyright {
+    font-size: calc(var(--base) / 2);
+  }
+
+  .navSocial {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .nav {
+    font-family: Raleway Med;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    gap: calc(var(--base) / 4) var(--base);
+    align-items: center;
+    flex-wrap: wrap;
+    transition: opacity 200ms linear;
+
+    > * {
+      text-decoration: none;
+    }
+  }
+
+
+  .link {
+    width: unset;
+  }
+
+
+@include mid-break {
+  .contact, .wrap {
+    padding: calc(var(--base) * 2) calc(var(--base) * 1);
+  }
+
+  .logo {
+    font-size: calc(var(--base) * 1.25);
+  }
+
+  .nav {
+    padding-bottom: calc(var(--base)*0.5);
+  }
+
+  .navSocial {
+    align-items: flex-start;
+  }
+
+  .link {
+    justify-content: flex-start;
+    width: 45%;
+  }
+}
+
 }

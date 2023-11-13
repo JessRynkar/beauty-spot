@@ -1,4 +1,16 @@
-@use '../../_css/type.scss' as *;
+@use '../../_css/common.scss' as *;
 
 .lowImpactHero {
+  background-color: var(--color-peach);
+  padding-top: calc(var(--base) * 5.5);
+
+  .content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @include small-break {
+    padding-top: calc(var(--base) * 3);
+  }
 }

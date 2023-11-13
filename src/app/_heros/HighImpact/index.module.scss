@@ -1,55 +1,76 @@
 @import '../../_css/queries.scss';
 
 .hero {
-  padding-top: calc(var(--base) * 2);
+  height: 100%;
+  padding: calc(var(--base) * 10) 0 0 0;
   position: relative;
-  overflow: hidden;
+  color: var(--color-base-100);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(black, 0.15);
+    z-index: -1;
+  }
 
   @include mid-break {
-    padding-top: var(--gutter-h);
+    padding-top: calc(var(--base) * 8);
+  }
+
+  @include small-break {
+    padding-top: calc(var(--base) * 4);
   }
 }
 
-.media {
-  width: calc(100% + var(--gutter-h));
-  left: calc(var(--gutter-h) / -2);
-  margin-top: calc(var(--base) * 3);
-  position: relative;
-
-  @include mid-break {
-    left: 0;
-    margin-top: var(--base);
-    margin-left: calc(var(--gutter-h) * -1);
-    width: calc(100% + var(--gutter-h) * 2);
-  }
+.image {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.9;
 }
 
 .links {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  padding-top: var(--base);
-  flex-wrap: wrap;
-  margin: calc(var(--base) * -.5);
+  padding: calc(var(--base) * 2) 0;
+  margin-top: var(--base);
+  justify-content: center;
 
   & > * {
     margin: calc(var(--base) / 2);
   }
 }
 
-.caption {
-  margin-top: var(--base);
-  color: var(--theme-elevation-500);
-  left: calc(var(--gutter-h) / 2);
-  width: calc(100% - var(--gutter-h));
-  position: relative;
-
-  @include mid-break {
-    left: var(--gutter-h);
-  }
-}
-
 .content {
   position: relative;
+  text-align: center;
+  margin: calc(var(--base) * 2) 0;
+}
+
+
+@include mid-break {
+  .hero {
+    height: unset;
+  }
+
+  .links {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .content {
+    margin: 0;
+  }
+
+  .richText {
+    padding: calc(var(--base) * 1) 0;
+  }
 }

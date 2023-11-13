@@ -1,6 +1,9 @@
-import React, { Fragment } from 'react'
+'use client'
 
-import { Page } from '../../../payload/payload-types'
+import React from 'react'
+
+import { Contact, Hours, Page } from '../../../payload/payload-types'
+import { ContactBlock } from '../../_components/ContactBlock'
 import { Gutter } from '../../_components/Gutter'
 import { CMSLink } from '../../_components/Link'
 import { Media } from '../../_components/Media'
@@ -8,36 +11,36 @@ import RichText from '../../_components/RichText'
 
 import classes from './index.module.scss'
 
-export const HighImpactHero: React.FC<Page['hero']> = ({ richText, media, links }) => {
+export const HighImpactHero: React.FC<Page['hero'] & { hours?: Hours; contact?: Contact }> = ({
+  richText,
+  media,
+  links,
+  contact,
+  hours,
+}) => {
   return (
-    <Gutter className={classes.hero}>
-      <div className={classes.content}>
-        <RichText content={richText} />
-        {Array.isArray(links) && links.length > 0 && (
-          <ul className={classes.links}>
-            {links.map(({ link }, i) => {
-              return (
-                <li key={i}>
-                  <CMSLink {...link} />
-                </li>
-              )
-            })}
-          </ul>
-        )}
-      </div>
-      <div className={classes.media}>
+    <div className={classes.hero}>
+      <Gutter>
+        <div className={classes.content}>
+          <RichText className={classes.richText} content={richText} />
+          {Array.isArray(links) && links.length > 0 && (
+            <ul className={classes.links}>
+              {links.map(({ link }, i) => {
+                return (
+                  <li key={i}>
+                    <CMSLink {...link} />
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+
+          <ContactBlock contact={contact} hours={hours} disableIcons />
+        </div>
         {typeof media === 'object' && (
-          <Fragment>
-            <Media
-              resource={media}
-              // fill
-              imgClassName={classes.image}
-              priority
-            />
-            {media?.caption && <RichText content={media.caption} className={classes.caption} />}
-          </Fragment>
+          <Media resource={media} imgClassName={classes.image} priority />
         )}
-      </div>
-    </Gutter>
+      </Gutter>
+    </div>
   )
 }

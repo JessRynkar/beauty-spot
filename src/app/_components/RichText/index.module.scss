@@ -1,8 +1,29 @@
+@use '../../_css/queries.scss' as *;
+
 .richText {
   :first-child {
     margin-top: 0;
   }
   :last-child {
     margin-bottom: 0;
+  }
+
+  & blockquote {
+    font-family: Fogtwo;
+    font-size: calc(var(--base)*1.65);
+
+    &::before {
+      content: "\201C";
+    }
+
+    &::after {
+      content: "\201D";
+    }
+
+    @include small-break {
+      margin: 0;
+      line-height: 1.2;
+      font-size: calc(var(--base)*1.25);
+    }
   }
 }

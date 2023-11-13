@@ -1,23 +1,15 @@
-import type { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
-
 import type { Config } from '../../payload/payload-types'
 import { PAGE } from '../_graphql/pages'
-import { POST } from '../_graphql/posts'
-import { PROJECT } from '../_graphql/projects'
-import { payloadToken } from './token'
+import { SERVICES } from '../_graphql/services'
 
 const queryMap = {
   pages: {
     query: PAGE,
     key: 'Pages',
   },
-  posts: {
-    query: POST,
-    key: 'Posts',
-  },
-  projects: {
-    query: PROJECT,
-    key: 'Projects',
+  products: {
+    query: SERVICES,
+    key: 'Services',
   },
 }
 
@@ -25,32 +17,22 @@ export const fetchDoc = async <T>(args: {
   collection: keyof Config['collections']
   slug?: string
   id?: string
-  draft?: boolean
+  token?: string
 }): Promise<T> => {
-  const { collection, slug, draft } = args || {}
+  const { collection, slug, token } = args || {}
 
   if (!queryMap[collection]) throw new Error(`Collection ${collection} not found`)
-
-  let token: RequestCookie | undefined
-
-  if (draft) {
-    const { cookies } = await import('next/headers')
-    token = cookies().get(payloadToken)
-  }
 
   const doc: T = await fetch(`${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      ...(token?.value && draft ? { Authorization: `JWT ${token.value}` } : {}),
+      ...(token ? { Authorization: `JWT ${token}` } : {}),
     },
-    cache: 'no-store',
-    next: { tags: [`${collection}_${slug}`] },
     body: JSON.stringify({
       query: queryMap[collection].query,
       variables: {
         slug,
-        draft,
       },
     }),
   })

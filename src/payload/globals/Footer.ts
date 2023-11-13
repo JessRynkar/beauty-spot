@@ -12,6 +12,11 @@ export const Footer: GlobalConfig = {
       name: 'navItems',
       type: 'array',
       maxRows: 6,
+      admin: {
+        components: {
+          RowLabel: ({ data }) => data?.link?.label || '',
+        },
+      },
       fields: [
         link({
           appearances: false,

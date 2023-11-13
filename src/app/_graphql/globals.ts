@@ -28,19 +28,39 @@ query Footer {
 }
 `
 
-export const SETTINGS = `
-  Settings {
-    postsPage {
-      slug
+export const CONTACT = `
+  Contact {
+    number
+    email
+    address {
+      line1
+      line2
     }
-    projectsPage {
-      slug
+    instagram
+    facebook
+  }
+`
+
+export const CONTACT_QUERY = `
+query Contact {
+  ${CONTACT}
+}
+`
+
+export const HOURS = `
+  Hours {
+    days {
+      fromDay
+      toDay
+      open
+      openTime
+      closeTime
     }
   }
 `
 
-export const SETTINGS_QUERY = `
-query Settings {
-  ${SETTINGS}
+export const HOURS_QUERY = `
+query Hours {
+  ${HOURS}
 }
 `

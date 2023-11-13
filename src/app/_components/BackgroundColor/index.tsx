@@ -3,17 +3,23 @@ import React from 'react'
 import classes from './index.module.scss'
 
 type Props = {
-  invert?: boolean
+  index?: number
   className?: string
   children?: React.ReactNode
   id?: string
 }
 
 export const BackgroundColor: React.FC<Props> = props => {
-  const { id, className, children, invert } = props
+  const { id, className, children, index } = props
+
+  const colors = ['#F5E1D4', '#FDF3EC', '#F6EBE7', '#C7B0A9', '#F8E9DF']
+
+  const adjustedIndex = index !== undefined ? index % colors.length : 0
+
+  const selectedColor = colors[adjustedIndex]
 
   return (
-    <div id={id} className={[invert && classes.invert, className].filter(Boolean).join(' ')}>
+    <div id={id} className={className} style={{ backgroundColor: selectedColor }}>
       {children}
     </div>
   )

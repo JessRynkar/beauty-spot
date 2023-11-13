@@ -10,7 +10,9 @@ export const Providers: React.FC<{
 }> = ({ children }) => {
   return (
     <ThemeProvider>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthProvider>
+        <>{children}</>
+      </AuthProvider>
     </ThemeProvider>
   )
 }

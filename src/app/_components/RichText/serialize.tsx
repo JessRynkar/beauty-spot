@@ -5,7 +5,6 @@ import { Text } from 'slate'
 
 import { Label } from '../Label'
 import { LargeBody } from '../LargeBody'
-import { CMSLink } from '../Link'
 
 // eslint-disable-next-line no-use-before-define
 type Children = Leaf[]
@@ -74,8 +73,12 @@ const serialize = (children?: Children): React.ReactNode[] =>
         return <h5 key={i}>{serialize(node?.children)}</h5>
       case 'h6':
         return <h6 key={i}>{serialize(node?.children)}</h6>
-      case 'quote':
-        return <blockquote key={i}>{serialize(node?.children)}</blockquote>
+      case 'blockquote':
+        return (
+          <blockquote style={{ textAlign: 'center' }} key={i}>
+            {serialize(node?.children)}
+          </blockquote>
+        )
       case 'ul':
         return <ul key={i}>{serialize(node?.children)}</ul>
       case 'ol':
@@ -84,15 +87,18 @@ const serialize = (children?: Children): React.ReactNode[] =>
         return <li key={i}>{serialize(node.children)}</li>
       case 'link':
         return (
-          <CMSLink
+          <Link
+            href={escapeHTML(node.url)}
             key={i}
-            type={node.linkType === 'internal' ? 'reference' : 'custom'}
-            url={node.url}
-            reference={node.doc as any}
-            newTab={Boolean(node?.newTab)}
+            {...(node?.newTab
+              ? {
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                }
+              : {})}
           >
             {serialize(node?.children)}
-          </CMSLink>
+          </Link>
         )
 
       case 'label':

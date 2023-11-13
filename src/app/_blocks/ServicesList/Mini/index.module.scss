@@ -1,0 +1,95 @@
+@import '../../../_css/common';
+
+.miniServiceList {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  & > * {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  & h1 {
+    text-transform: uppercase;
+  }
+
+  .listWrap {
+    display: flex;
+    flex-direction: row;
+    gap: var(--base);
+    padding: 0;
+    margin: var(--base) auto;
+    list-style: none;
+    max-width: 100%;
+    overflow-x: scroll;
+
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .serviceWrap {
+    max-width: 800px;
+  }
+
+  .category {
+    @include button-reset;
+    @extend %label;
+    font-family: Raleway Med;
+    padding: calc(var(--base) / 2) var(--base);
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background-color: var(--theme-elevation-700);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .active {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .description {
+    margin: 0 auto;
+  }
+
+  .services {
+    display: flex;
+    font-family: Raleway Med;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: var(--base) 0;
+
+    & > * {
+      width: 45%;
+    }
+  }
+
+  .menuButton {
+    margin-top: var(--base);
+  }
+
+  @include mid-break {
+    .category {
+      padding: calc(var(--base) / 3);
+      font-size: 13px;
+    }
+  }
+}

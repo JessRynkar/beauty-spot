@@ -1,7 +1,22 @@
+@import '../../../_css/common.scss';
+
 .placeholder-color-light {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
 .placeholder {
   background-color: var(--theme-elevation-50);
+}
+
+.image {
+  object-fit: cover;
+  height: 100%;
+}
+
+
+@include mid-break {
+  .image {
+    min-height: 500px;
+    object-fit: cover;
+  }
 }

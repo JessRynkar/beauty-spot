@@ -1,22 +1,73 @@
 @use '../../_css/queries.scss' as *;
 
 .header {
-  padding: var(--base) 0;
-}
-
-.wrap {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  position: fixed;
+  padding: var(--base);
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
   gap: calc(var(--base) / 2) var(--base);
-}
+  color: var(--theme-elevation-900);
 
-.logo {
-  width: 150px;
-}
+  .wrap {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 
-:global([data-theme="light"]) {
+  .topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--base);
+    position: relative;
+    padding: var(--base);
+  }
+
   .logo {
-    filter: invert(1);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    font-family: Fogtwo;
+    font-size: calc(var(--base)*1.65);
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      transition: opacity 0.2s ease-in-out;
+      opacity: 0.75;
+    }
+  }
+
+  .nav {
+    font-family: Raleway Med;
+    padding: calc(var(--base)/2) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    gap: calc(var(--base) / 4) calc(var(--base)*1.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--theme-elevation-900);
+
+    > * {
+      text-decoration: none;
+    }
+  }
+
+  & svg {
+    & path {
+      fill: var(--theme-elevation-900);
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
+
+  @include small-break {
+    .wrap {
+      display: none;
+    }
   }
 }

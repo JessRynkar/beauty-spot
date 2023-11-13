@@ -28,3 +28,14 @@ $breakpoint-l-width: 1440px;
     @content;
   }
 }
+
+@mixin button-reset {
+  border: 0;
+  text-decoration: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  color: currentColor;
+  font-family: var(--font-body);
+}

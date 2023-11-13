@@ -12,6 +12,11 @@ export const Header: GlobalConfig = {
       name: 'navItems',
       type: 'array',
       maxRows: 6,
+      admin: {
+        components: {
+          RowLabel: ({ data }) => data?.link?.label || '',
+        },
+      },
       fields: [
         link({
           appearances: false,

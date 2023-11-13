@@ -13,10 +13,11 @@ type CMSLinkType = {
     relationTo: 'pages'
   }
   label?: string
-  appearance?: ButtonProps['appearance']
+  appearance?: 'default' | 'primary' | 'secondary'
   children?: React.ReactNode
   className?: string
   invert?: ButtonProps['invert']
+  onClick?: () => void
 }
 
 export const CMSLink: React.FC<CMSLinkType> = ({
@@ -29,22 +30,19 @@ export const CMSLink: React.FC<CMSLinkType> = ({
   children,
   className,
   invert,
+  onClick,
 }) => {
   const href =
     type === 'reference' && typeof reference?.value === 'object' && reference.value.slug
-      ? `${reference?.relationTo !== 'pages' ? `/${reference?.relationTo}` : ''}/${
-          reference.value.slug
-        }`
+      ? `/${reference.value.slug}`
       : url
-
-  if (!href) return null
 
   if (!appearance) {
     const newTabProps = newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 
     if (href || url) {
       return (
-        <Link {...newTabProps} href={href || url} className={className}>
+        <Link {...newTabProps} href={href || url} className={className} onClick={onClick}>
           {label && label}
           {children && children}
         </Link>
@@ -60,6 +58,7 @@ export const CMSLink: React.FC<CMSLinkType> = ({
       appearance={appearance}
       label={label}
       invert={invert}
+      onClick={onClick}
     />
   )
 }

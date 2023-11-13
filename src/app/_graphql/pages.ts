@@ -1,11 +1,18 @@
-import { ARCHIVE_BLOCK, CALL_TO_ACTION, CONTENT, MEDIA_BLOCK } from './blocks'
+import {
+  CALL_TO_ACTION,
+  CONTENT,
+  CONTENT_MEDIA,
+  GOOGLE_MAPS,
+  MEDIA_BLOCK,
+  SERVICES_LIST,
+} from './blocks'
 import { LINK_FIELDS } from './link'
 import { MEDIA } from './media'
 import { META } from './meta'
 
 export const PAGES = `
   query Pages {
-    Pages(limit: 300)  {
+    Pages(limit: 300, where: { slug: { not_equals: "cart" } })  {
       docs {
         slug
       }
@@ -14,8 +21,8 @@ export const PAGES = `
 `
 
 export const PAGE = `
-  query Page($slug: String, $draft: Boolean) {
-    Pages(where: { slug: { equals: $slug }}, limit: 1, draft: $draft) {
+  query Page($slug: String ) {
+    Pages(where: { AND: [{ slug: { equals: $slug }}] }) {
       docs {
         id
         title
@@ -31,8 +38,10 @@ export const PAGE = `
           ${CONTENT}
           ${CALL_TO_ACTION}
           ${CONTENT}
+          ${CONTENT_MEDIA}
+          ${GOOGLE_MAPS}
           ${MEDIA_BLOCK}
-          ${ARCHIVE_BLOCK}
+          ${SERVICES_LIST}
         }
         ${META}
       }

@@ -1,0 +1,45 @@
+@use '../../_css/queries.scss' as *;
+
+.googleMaps {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  @include mid-break {
+    flex-direction: column-reverse;
+  }
+}
+
+.mediaWrap {
+  display: block;
+  position: relative;
+}
+
+.media {
+  object-fit: cover;
+  height: 100%;
+}
+
+.map {
+  position: relative;
+  padding-bottom: 50%;
+  width: 100%;
+}
+
+.map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@include mid-break {
+  .map {
+    padding-bottom: 100%;
+  }
+
+  .mediaWrap {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+.socials {
+  display: flex;
+  gap: calc(var(--base)/2);
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0.75;
+  }
+}

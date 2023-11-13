@@ -1,0 +1,156 @@
+@import '../../../_css/common';
+
+.fullServiceList {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .categoryWrap {
+    position: relative;
+    max-width: 600px;
+    margin: var(--block-padding) auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & h3 {
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+
+  .id {
+    position: absolute;
+    top: calc(var(--base) * -10);
+  }
+
+  .description {
+    text-align: center;
+    padding-bottom: calc(var(--base) * 2);
+  }
+
+  .serviceList, .service {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .serviceList {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: var(--base);
+  }
+
+  .serviceWrap {
+    width: 45%;
+  }
+
+  .service {
+    font-family: Raleway Med;
+    padding-bottom: calc(var(--base) * 0.5);
+  }
+
+  .button {
+    margin-top: calc(var(--base) * 2);
+  }
+
+  .jumplistWrap {
+    position: absolute;
+    top: calc(var(--base) * 4);
+    left: 0;
+    height: 100%;
+  }
+
+  .jumplist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: calc(var(--base) * 7);
+    padding: var(--base);
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin-left: calc(var(--base) * 1);
+  }
+
+  .jumpButton {
+    @include button-reset;
+    font-family: Raleway Med;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: calc(var(--base) * 0.5) 0;
+    letter-spacing: 1.2px;
+  }
+
+  .separator {
+    position: relative;
+    height: 400px;
+    background-color: var(--theme-elevation-400);
+    margin: 0 calc(var(--gutter-h) * -1);
+    overflow: hidden;
+  }
+
+  @include mid-break {
+    padding-top: calc(var(--base) * 2);
+
+    .id {
+      top: calc(var(--base) * -10);
+    }
+
+    .jumpButton {
+      font-size: 14px;
+    }
+
+    .jumplistWrap {
+      top: calc(var(--base) * 1);
+      width: 100%;
+      padding: 0 var(--base);
+      pointer-events: none;
+    }
+
+    .jumplist {
+      width: fit-content;
+      margin: 0 auto;
+      gap: calc(var(--base) * 0.5);
+      flex-direction: row;
+      padding: 0 var(--base);
+      overflow-x: scroll;
+      pointer-events: all;
+      top: calc(var(--base) * 6.5);
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .media {
+      & img {
+        min-height: 35vh;
+      }
+    }
+  }
+
+
+  @include small-break {
+    .id {
+      top: calc(var(--base) * -6);
+    }
+
+    .jumplistWrap {
+      top: calc(var(--base) * 1);
+    }
+
+    .jumplist {
+      top: calc(var(--base) * 3.25);
+    }
+
+    .media {
+      & img {
+        min-height: 20vh;
+      }
+    }
+  }
+}

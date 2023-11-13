@@ -1,7 +1,5 @@
-import { CATEGORIES } from './categories'
 import { LINK_FIELDS } from './link'
 import { MEDIA } from './media'
-import { META } from './meta'
 
 export const CALL_TO_ACTION = `
 ...on Cta {
@@ -27,6 +25,22 @@ export const CONTENT = `
 }
 `
 
+export const CONTENT_MEDIA = `
+...on ContentMedia {
+  blockType
+  content
+  ${MEDIA}
+  imagePosition
+}
+`
+
+export const GOOGLE_MAPS = `
+...on GoogleMaps {
+  blockType
+  ${MEDIA}
+}
+`
+
 export const MEDIA_BLOCK = `
 ...on MediaBlock {
   blockType
@@ -35,49 +49,21 @@ export const MEDIA_BLOCK = `
   ${MEDIA}
 }
 `
-
-export const ARCHIVE_BLOCK = `
-...on Archive {
+export const SERVICES_LIST = `
+...on ServicesList {
   blockType
-  introContent
-  populateBy
-  relationTo
-  ${CATEGORIES}
-  limit
-  selectedDocs {
-    relationTo
-    value {
-      ...on Post {
-        id
-        slug
-        title
-      }
-      ...on Project {
-        id
-        slug
-        title
-      }
+  type
+  service {
+    category
+    description
+    ${MEDIA}
+    freshaURL
+    services {
+      name
+      description
+      price
+      duration
     }
   }
-  populatedDocs {
-    relationTo
-    value {
-      ...on Post {
-        id
-        slug
-        title
-        ${CATEGORIES}
-        ${META}
-      }
-      ...on Project {
-        id
-        slug
-        title
-        ${CATEGORIES}
-        ${META}
-      }
-    }
-  }
-  populatedDocsTotal
 }
 `
