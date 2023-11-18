@@ -48,11 +48,12 @@ export const FullServiceList: React.FC<{
                 newTab
               />
             </div>
-            <div className={classes.separator}>
-              {typeof media === 'object' && (
-                <Media className={classes.media} resource={media} fill />
-              )}
+            {media && typeof media === 'object' && <div className={classes.separator}>
+              (
+              <Media className={classes.media} resource={media} fill />
+              )
             </div>
+            }
           </div>
         )
       })}
