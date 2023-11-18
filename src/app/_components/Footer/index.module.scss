@@ -1,10 +1,10 @@
 @use '../../_css/queries.scss' as *;
 
 .footer {
-  background-color: #F6EBE7;
+  background-color: var(--color-gradient-4);
 
   .contact {
-    background-color: #FDF3EC;
+    background-color: var(--color-gradient-5);
     color: var(--base-color-0);
     padding: calc(var(--base) * 4) calc(var(--base) * 2);
     margin: 0;
