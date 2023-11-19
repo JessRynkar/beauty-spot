@@ -23,7 +23,7 @@ export const Hero: React.FC<
 
   const HeroToRender = heroes[type]
 
-  if (!HeroToRender) return null
+  if (!HeroToRender) return <div style={{ width: '100%', height: '100px' }} />
 
   return <HeroToRender {...props} />
 }

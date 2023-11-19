@@ -23,7 +23,7 @@ export const GoogleMaps: React.FC<
         <div className={classes.googleMaps}>
           <div className={classes.map} dangerouslySetInnerHTML={{ __html: embed }}></div>
           <div className={classes.contactWrap}>
-            {/* <ContactInfo /> */}
+            <ContactInfo />
           </div>
         </div>
       </Gutter>
