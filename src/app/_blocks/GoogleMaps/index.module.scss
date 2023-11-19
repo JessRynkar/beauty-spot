@@ -1,45 +1,44 @@
 @use '../../_css/queries.scss' as *;
 
 .googleMaps {
-  position: relative;
   display: flex;
   flex-direction: row;
-
-  @include mid-break {
-    flex-direction: column-reverse;
-  }
+  gap: calc(var(--base) * 4);
 }
 
-.mediaWrap {
-  display: block;
-  position: relative;
-}
-
-.media {
-  object-fit: cover;
-  height: 100%;
+.contactWrap {
+  width: 40%;
 }
 
 .map {
   position: relative;
-  padding-bottom: 50%;
-  width: 100%;
+  width: 60%;
+
+  &::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-gradient-1);
+    opacity: 0.35;
+  }
 }
 
 .map iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
+  width: -webkit-fill-available;
 }
 
 @include mid-break {
-  .map {
-    padding-bottom: 100%;
+  .googleMaps {
+    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: calc(var(--base) * 2);
   }
 
-  .mediaWrap {
-    display: none;
+  .contactWrap, .map {
+    width: 100%;
   }
 }

@@ -2,7 +2,7 @@
 
 .hero {
   height: 100%;
-  padding: calc(var(--base) * 10) 0 0 0;
+  padding: calc(var(--base) * 10) 0 calc(var(--base) * 6)  0;
   position: relative;
   color: var(--color-base-100);
 
@@ -19,10 +19,12 @@
 
   @include mid-break {
     padding-top: calc(var(--base) * 8);
+    padding-bottom: calc(var(--base) * 4);
   }
 
   @include small-break {
     padding-top: calc(var(--base) * 4);
+    padding-bottom: calc(var(--base) * 2);
   }
 }
 
@@ -43,16 +45,20 @@
   padding: calc(var(--base) * 2) 0;
   margin-top: var(--base);
   justify-content: center;
-
-  & > * {
-    margin: calc(var(--base) / 2);
-  }
+  gap: calc(var(--base) * 1);
 }
 
 .content {
-  position: relative;
+  height: 100%;
   text-align: center;
-  margin: calc(var(--base) * 2) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.richText {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 

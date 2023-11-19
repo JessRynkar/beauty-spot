@@ -23,7 +23,7 @@
     list-style: none;
     max-width: 100%;
     overflow-x: scroll;
-
+    flex-wrap: nowrap;
 
     &::-webkit-scrollbar {
       display: none;
@@ -39,6 +39,7 @@
     @extend %label;
     font-family: Raleway Med;
     padding: calc(var(--base) / 2) var(--base);
+    text-wrap: nowrap;
 
     &::after {
       content: '';

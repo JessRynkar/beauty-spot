@@ -1,0 +1,69 @@
+@import '../../_css/common';
+
+.contact {
+  margin: var(--base) 0;
+  color: var(--base-color-100);
+  display: flex;
+  flex-direction: column;
+  gap: var(--base);
+  align-items: flex-start;
+
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    gap: calc(var(--base)/4);
+    line-height: 1.5;
+
+    & h6 {
+      font-size: 18px;
+      align-self: flex-start;
+      margin: 0;
+    }
+
+    & span {
+      font-family: Raleway Med;
+    }
+
+    & a {
+      color: var(--base-color-100);
+      text-decoration: none;
+      transition: opacity 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      &:hover {
+        transition: opacity 0.2s ease-in-out;
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .hours {
+    list-style: none;
+    font-family: Raleway Med;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dayWrap {
+    display: flex;
+    gap: 10px;
+  }
+
+  .days {
+    text-transform: capitalize;
+  }
+
+  .closed {
+    font-weight: 600;
+  }
+
+  @include mid-break {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    gap: calc(var(--base)*1.25);
+  }
+}
