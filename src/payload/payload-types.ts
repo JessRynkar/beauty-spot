@@ -50,7 +50,6 @@ export interface Page {
   };
   layout: (
     | {
-        invertBackground?: boolean | null;
         richText: {
           [k: string]: unknown;
         }[];
@@ -75,7 +74,6 @@ export interface Page {
         blockType: 'cta';
       }
     | {
-        invertBackground?: boolean | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -120,7 +118,6 @@ export interface Page {
         blockType: 'googleMaps';
       }
     | {
-        invertBackground?: boolean | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
         id?: string | null;

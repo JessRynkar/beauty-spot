@@ -14,11 +14,11 @@ export const ContentSlider: React.FC<
   Props & {
     id?: string
   }
-> = ({ links, richText, invertBackground }) => {
+> = ({ links, richText }) => {
   return (
     <Gutter>
       <VerticalPadding
-        className={[classes.callToAction, invertBackground && classes.invert]
+        className={[classes.callToAction]
           .filter(Boolean)
           .join(' ')}
       >
@@ -28,7 +28,7 @@ export const ContentSlider: React.FC<
           </div>
           <div className={classes.linkGroup}>
             {(links || []).map(({ link }, i) => {
-              return <CMSLink key={i} {...link} invert={invertBackground} />
+              return <CMSLink key={i} {...link} />
             })}
           </div>
         </div>

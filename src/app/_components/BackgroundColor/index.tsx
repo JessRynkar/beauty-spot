@@ -13,12 +13,13 @@ export const BackgroundColor: React.FC<Props> = props => {
   const { id, className, children, index } = props
 
   const colors = [
+    '#F6EBE7',
+    '#fdf3eb',
+    '#f5e1d3',
     '#AA8EA9',
     '#A8868F',
     '#AD96C5',
     '#AB8381',
-    '#B9958D',
-    '#BEA09B',
   ]
 
   const adjustedIndex = index !== undefined ? index % colors.length : 0

@@ -280,7 +280,6 @@ input Page_Hero_Media_where_or {
 union Page_Layout = Cta | Content | ContentMedia | GoogleMaps | MediaBlock | ServicesList
 
 type Cta {
-  invertBackground: Boolean
   richText(depth: Int): JSON
   links: [Cta_Links!]
   id: String
@@ -324,7 +323,6 @@ enum Cta_Links_Link_appearance {
 }
 
 type Content {
-  invertBackground: Boolean
   columns: [Content_Columns!]
   id: String
   blockName: String
@@ -723,7 +721,6 @@ input GoogleMaps_Media_where_or {
 }
 
 type MediaBlock {
-  invertBackground: Boolean
   position: MediaBlock_position
   media(where: MediaBlock_Media_where): Media
   id: String
