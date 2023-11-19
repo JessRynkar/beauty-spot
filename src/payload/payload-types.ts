@@ -112,7 +112,7 @@ export interface Page {
         blockType: 'contentMedia';
       }
     | {
-        media?: string | Media | null;
+        disclaimer?: string | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'googleMaps';

@@ -7,9 +7,13 @@ export const GoogleMaps: Block = {
   },
   fields: [
     {
-      name: 'media',
-      type: 'upload',
-      relationTo: 'media',
+      name: 'disclaimer',
+      type: 'text',
+      defaultValue:
+        'This block will automatically render the global contact data, you can update these in your site settings.',
+      admin: {
+        readOnly: true,
+      },
     },
   ],
 }
