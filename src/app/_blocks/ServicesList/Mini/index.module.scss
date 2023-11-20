@@ -41,6 +41,7 @@
     font-family: Raleway Med;
     padding: calc(var(--base) / 2) var(--base);
     text-wrap: nowrap;
+    min-width: fit-content;
 
     &::after {
       content: '';
