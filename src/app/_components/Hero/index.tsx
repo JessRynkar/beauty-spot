@@ -19,11 +19,11 @@ export const Hero: React.FC<
 > = props => {
   const { type } = props || {}
 
-  if (!type || type === 'none') return <div style={{ width: '100%', height: '100px' }} />
+  if (!type || type === 'none') return null
 
   const HeroToRender = heroes[type]
 
-  if (!HeroToRender) return <div style={{ width: '100%', height: '100px' }} />
+  if (!HeroToRender) return null
 
   return <HeroToRender {...props} />
 }
