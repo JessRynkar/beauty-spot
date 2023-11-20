@@ -1,0 +1,11 @@
+@import '../../_css/queries.scss';
+
+.headerPadding {
+  width: 100%;
+  background-color: var(--color-peach);
+  height: calc(var(--base) * 6);
+
+  @include mid-break {
+    height: calc(var(--base) * 4);
+  }
+}

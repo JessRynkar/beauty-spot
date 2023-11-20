@@ -4,6 +4,7 @@ import { Contact, Hours, Page } from '../../../payload/payload-types'
 import { HighImpactHero } from '../../_heros/HighImpact'
 import { LowImpactHero } from '../../_heros/LowImpact'
 import { MediumImpactHero } from '../../_heros/MediumImpact'
+import { HeaderPadding } from '../HeaderPadding'
 
 const heroes = {
   highImpact: HighImpactHero,
@@ -19,7 +20,7 @@ export const Hero: React.FC<
 > = props => {
   const { type } = props || {}
 
-  if (!type || type === 'none') return null
+  if (!type || type === 'none') return <HeaderPadding />
 
   const HeroToRender = heroes[type]
 

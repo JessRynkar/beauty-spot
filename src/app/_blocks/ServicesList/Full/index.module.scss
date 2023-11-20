@@ -85,6 +85,8 @@
     padding: calc(var(--base) * 0.5) 0;
     letter-spacing: 1.2px;
     min-width: fit-content;
+    flex-wrap: nowrap;
+    text-wrap: nowrap;
   }
 
   .separator {
@@ -116,7 +118,7 @@
     .jumplist {
       width: fit-content;
       margin: 0 auto;
-      gap: calc(var(--base) * 0.5);
+      gap: calc(var(--base) * 1);
       flex-direction: row;
       padding: 0 var(--base);
       overflow-x: scroll;
