@@ -29,6 +29,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://beauty-spot.payloadcms.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://beauty-spot.co.uk'),
   openGraph: mergeOpenGraph(),
 }
