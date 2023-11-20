@@ -17,6 +17,9 @@ import { Footer } from './globals/Footer'
 import { Header } from './globals/Header'
 import { Hours } from './globals/Hours'
 
+import { Icon } from './graphics/Icon'
+import { Logo } from './graphics/Logo'
+
 const generateTitle: GenerateTitle = () => {
   return 'The Beauty Spot'
 }
@@ -26,6 +29,12 @@ dotenv.config({
 
 export default buildConfig({
   admin: {
+    components: {
+      graphics: {
+        Icon,
+        Logo,
+      },
+    },
     user: Users.slug,
     bundler: webpackBundler(),
     webpack: config => ({
