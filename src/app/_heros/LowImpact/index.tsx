@@ -11,9 +11,7 @@ export const LowImpactHero: React.FC<Page['hero']> = ({ richText }) => {
   return (
     <Gutter className={classes.lowImpactHero}>
       <div className={classes.content}>
-        <VerticalPadding top="medium">
-          <RichText className={classes.richText} content={richText} />
-        </VerticalPadding>
+        <RichText className={classes.richText} content={richText} />
       </div>
     </Gutter>
   )
