@@ -16,7 +16,7 @@ export const BackgroundColor: React.FC<Props> = props => {
     '#F6EBE7',
     '#fdf3eb',
     '#f5e1d3',
-    '#AA8EA9',
+    '#f9ebe1',
     '#A8868F',
     '#AD96C5',
     '#AB8381',
