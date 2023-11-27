@@ -24,7 +24,7 @@ export const MiniServiceList: React.FC<{
           const { category } = service
 
           return (
-            <li key={i}>
+            <li key={i} className={classes.categoryWrap}>
               <button
                 className={[classes.category, activeCategory === category && classes.active]
                   .filter(Boolean)

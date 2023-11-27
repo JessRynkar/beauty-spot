@@ -35,15 +35,16 @@
     max-width: 800px;
   }
 
+  .categoryWrap {
+    white-space: nowrap;
+  }
+
   .category {
     @include button-reset;
     @extend %label;
     position: relative;
     font-family: Raleway Med;
     padding: calc(var(--base) / 2) var(--base);
-    min-width: max-content;
-    flex-wrap: nowrap;
-    text-wrap: nowrap;
 
     &::after {
       content: '';
