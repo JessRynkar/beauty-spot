@@ -1,0 +1,34 @@
+@use '../../_css/common.scss' as *;
+
+.hero {
+  background-color: var(--color-peach);
+  padding-top: calc(var(--base) * 5.5);
+
+  .content {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @include small-break {
+    padding-top: calc(var(--base) * 3);
+  }
+}
+
+// The Dermis embed script sets an inline height + overflow:hidden on the
+// wrapper div it injects into this slot, forcing internal scrolling.
+// !important is required here since it must override that inline style.
+.scanSection {
+  background-color: #f2f7fb;
+}
+
+.scanSlot > div {
+  height: 1100px !important;
+  overflow: visible !important;
+  background-color: #f2f7fb;
+}
+
+.scanSlot iframe {
+  height: 1100px !important;
+  background-color: #f2f7fb;
+}

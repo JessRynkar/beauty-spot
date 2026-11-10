@@ -15,7 +15,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Providers>
           {/* @ts-expect-error */}
           <Header />
