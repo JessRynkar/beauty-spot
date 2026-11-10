@@ -38,7 +38,7 @@ export async function Footer() {
           <Link href="/" className={classes.logo}>
             THE BEAUTY SPOT
           </Link>
-          <div className={classes.copyright}>&copy; 2024</div>
+          <div className={classes.copyright}>&copy; {new Date().getFullYear()}</div>
         </div>
 
         <div className={classes.navSocial}>
