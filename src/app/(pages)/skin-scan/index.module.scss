@@ -15,20 +15,16 @@
   }
 }
 
-// The Dermis embed script sets an inline height + overflow:hidden on the
-// wrapper div it injects into this slot, forcing internal scrolling.
-// !important is required here since it must override that inline style.
+// Height is controlled by the "Compact" setting in the Dermis dashboard now,
+// so we no longer force a fixed height here - just match the background.
 .scanSection {
   background-color: #f2f7fb;
 }
 
 .scanSlot > div {
-  height: 1100px !important;
-  overflow: visible !important;
   background-color: #f2f7fb;
 }
 
 .scanSlot iframe {
-  height: 1100px !important;
   background-color: #f2f7fb;
 }
