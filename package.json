@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "license": "MIT",
   "engines": {
-    "node": ">=18.18.0 <27.0.0"
+    "node": ">=18.18.0 <25.0.0"
   },
   "scripts": {
     "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts nodemon",
