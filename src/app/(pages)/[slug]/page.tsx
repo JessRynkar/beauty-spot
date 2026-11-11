@@ -52,7 +52,7 @@ export default async function Page({ params }: Args) {
 export async function generateStaticParams() {
   try {
     const pages = await fetchDocs<Page>('pages')
-    return pages?.map(({ slug }) => slug)
+    return pages?.map(({ slug }) => ({ slug }))
   } catch (error) {
     return []
   }
