@@ -1,12 +1,11 @@
 import React from 'react'
 
 import { Page } from '../../../payload/payload-types'
-
-import classes from './index.module.scss'
+import { ContactInfo } from '../../_components/ContactInfo'
 import { Gutter } from '../../_components/Gutter'
 import { VerticalPadding } from '../../_components/VerticalPadding'
 
-import { ContactInfo } from '../../_components/ContactInfo'
+import classes from './index.module.scss'
 
 type Props = Extract<Page['layout'][0], { blockType: 'googleMaps' }>
 

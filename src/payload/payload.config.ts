@@ -16,7 +16,6 @@ import { Contact } from './globals/Contact'
 import { Footer } from './globals/Footer'
 import { Header } from './globals/Header'
 import { Hours } from './globals/Hours'
-
 import { Icon } from './graphics/Icon'
 import { Logo } from './graphics/Logo'
 

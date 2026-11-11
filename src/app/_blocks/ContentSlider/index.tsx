@@ -17,11 +17,7 @@ export const ContentSlider: React.FC<
 > = ({ links, richText }) => {
   return (
     <Gutter>
-      <VerticalPadding
-        className={[classes.callToAction]
-          .filter(Boolean)
-          .join(' ')}
-      >
+      <VerticalPadding className={[classes.callToAction].filter(Boolean).join(' ')}>
         <div className={classes.wrap}>
           <div className={classes.content}>
             <RichText className={classes.richText} content={richText} />

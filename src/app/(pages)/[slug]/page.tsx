@@ -12,7 +12,14 @@ import { generateMeta } from '../../_utilities/generateMeta'
 
 export const dynamic = 'force-dynamic'
 
-export default async function Page({ params: { slug = 'home' } }) {
+type Args = {
+  params: Promise<{
+    slug?: string
+  }>
+}
+
+export default async function Page({ params }: Args) {
+  const { slug = 'home' } = await params
   let page: Page
   let contact: Contact
   let hours: Hours
@@ -51,7 +58,8 @@ export async function generateStaticParams() {
   }
 }
 
-export async function generateMetadata({ params: { slug = 'home' } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { slug = 'home' } = await params
   let page: Page | null = null
 
   try {
